@@ -6,28 +6,32 @@
         <link rel="stylesheet" href="Login.css" title="estilo">
         <title>TaskYu Login</title>
     </head>
-<body>
-    <div id="login-box">
-        <div id="login-titulo">Login</div>
+    <body>
+        <div id="login-box">
+            <div id="login-titulo">Login</div>
 
-        <div id="login-login">
-            <p>Preencha os campos para criar uma conta ou entre em uma conta já existente.</p>
+            <div id="login-login">
+                <p>Preencha os campos para criar uma conta ou entre em uma conta já existente.</p>
 
-            <form>
-                <input type="text" name="nome" id="nome" placeholder="Nome de usuário">
-                <input type="email" name="email" id="email" placeholder="E-mail">
-                <input type="password" name="senha" id="senha" placeholder="Senha">
-                <p class="alerta">Preencha todos os campos para criar uma conta.</p>
-                <button type="submit" id="criar-conta">Criar conta</button>
-            </form>
+                <form id="login">
+                    <input type="text" name="nome" id="nome" placeholder="Nome de usuário">
+                    <input type="text" name="email" id="email" placeholder="E-mail">
+                    <input type="password" name="senha" id="senha" placeholder="Senha">
+                    <p class="alerta oculto" id="alerta-nome">O nome de usuário não pode ter mais de 30 caracteres, conter números, pontuação ou carateres especiais.</p>
+                    <p class="alerta oculto" id="alerta-email">Email inválido.</p>
+                    <p class="alerta oculto" id="alerta-senha">A senha deve ter entre 8 e 15 caracteres alfanuméricos sem espaçamento entre eles.</p>
+                    <p class="alerta oculto" id="alerta-campos">Preencha todos os campos para criar uma conta.</p>
+                    <button type="submit" id="criar-conta">Criar conta</button>
+                </form>
 
-            <a href="" id="entrar-conta">Entrar</a> 
+                <script src="LoginVerificacao.js"></script>
+
+                <a href="" id="entrar-conta">Entrar</a> 
+            </div>
+
+            <div id="login-descricao">
+                <p>O TaskYu é um aplicativo que oferece uma forma de organizar e atribuir tarefas, servindo para grupos ou indivíduos que querem uma forma rapida e eficiente de gerenciar suas atividades.</p>
+            </div>
         </div>
-
-        <div id="login-descricao">
-            <p>O TaskYu é um aplicativo que oferece uma forma de organizar e atribuir tarefas, servindo para grupos ou indivíduos que querem uma forma rapida e eficiente de gerenciar suas atividades.</p>
-        </div>
-    </div>
-    
-</body>
+    </body>
 </html>

@@ -19,7 +19,7 @@ body {
     border-radius: 10%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to left, black, rgb(124, 0, 124));
+    background: linear-gradient(to left, rgb(170, 167, 167), #c77dff);
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -71,6 +71,9 @@ div#login-box input {
     color: rgb(255, 6, 6);
     margin-top: 5px !important;
     font-size: 10px;
+}
+
+.oculto {
     display: none;
 }
 
@@ -98,13 +101,17 @@ a#entrar-conta {
     color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 15px; 
-    width: min-content;
+    width: 52px;
     text-decoration: none;
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc(50% - 26px);
     margin-top: 20px;
-    transition: text-decoration to;
+    transition: transform 0.3s ease-in-out;
 }
+
+a#entrar-conta:hover {
+    transform: scale(1.2);
+}
+
 
 a#entrar-conta::before {
     content: '';
@@ -124,7 +131,7 @@ a#entrar-conta:hover::before {
 
 div#login-descricao {
     position: relative;
-    color: white;
+    color: rgb(0, 0, 0);
     box-sizing: border-box;
     height: 300px;
     width: 50%;
@@ -148,7 +155,7 @@ div#login-descricao::before {
     height: 250px;
     width: 2px;
     right: 20px;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
 }
 
 div#login-descricao::after {
@@ -157,5 +164,5 @@ div#login-descricao::after {
     height: 250px;
     width: 2px;
     left: 20px;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
 }
