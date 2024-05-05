@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background: linear-gradient(to top, black, rgb(88, 3, 106));
+    background: linear-gradient(to top, rgb(7, 1, 30), rgb(36, 2, 44));
     background-size: cover;
     height: 100vh;
     padding: 0;
@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Georgia, Bodoni, "Times New Roman";
-}
+}   
 
 #login-box {
     position: relative;
@@ -19,11 +19,29 @@ body {
     border-radius: 10%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to left, rgb(170, 167, 167), #c77dff);
+    background-color: #161616;
     display: flex;
     flex-direction: row;
     align-items: end;
     box-shadow: -5px 10px 100px black, 5px -10px 100px black;
+    color: white;
+}
+
+#entrar-box {
+    position: relative;
+    width: 25%;
+    height: 60vh;
+    padding: 10px;
+    border: none;
+    border-radius: 10%;
+    margin: 0;
+    background-color: #161616;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: -3px 7px 50px black, 3px -7px 50px black;
+    color: white;
+    box-sizing: border-box;
 }
 
 #login-titulo {
@@ -31,7 +49,6 @@ body {
     font-size: 30px;
     padding: 0;
     margin-top: 5px;
-    color: black;
     left: 50%;
     top: 0;
     transform: translateX(-50%);
@@ -49,18 +66,20 @@ body {
     padding: 10px;
 }
 
-div#login-login p {
+div#login-login p,
+div#entrar-box p {
     text-align: justify;
     padding: 0;
     margin: 0;
 }
 
-div#login-box input {
-    background-color: black;
+div#login-box input,
+div#entrar-box input {
+    background-color: rgb(255, 255, 255);
     height: 35px;
     width: calc(100% - 10px);
     border: none;
-    color: rgb(184, 184, 184);
+    color: rgb(0, 0, 0);
     padding-left: 5px;
     margin-top: 10px;
     outline: none;
@@ -77,13 +96,13 @@ div#login-box input {
     display: none;
 }
 
-button#criar-conta {
+button#criar-entrar-conta {
     position: relative;
     height: 25px;
     width: 90px;
-    background: black;
+    background: rgb(161, 161, 161);
     border-radius: 50vh;
-    color: rgb(83, 83, 83);
+    color: rgb(30, 30, 30);
     font-weight: bold;
     border: none;
     left: calc(50% - 45px);
@@ -91,14 +110,14 @@ button#criar-conta {
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
-button#criar-conta:hover {
-    transform: scale(1.2);
+button#criar-entrar-conta:hover {
+    transform: scale(1.1);
     box-shadow: 0 0px 50px rgb(197, 196, 196);
 }
 
 a#entrar-conta {
     position: relative;
-    color: rgb(0, 0, 0);
+    color: rgb(161, 161, 161);
     font-weight: bold;
     font-size: 15px; 
     width: 52px;
@@ -109,7 +128,7 @@ a#entrar-conta {
 }
 
 a#entrar-conta:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 
@@ -120,7 +139,7 @@ a#entrar-conta::before {
     left: 0;
     width: 0;
     height: 1px;
-    background-color: black;
+    background-color: rgb(161, 161, 161);
     transition: width 0.3s ease-in-out; /* Transição para a largura */
 }
 
@@ -131,7 +150,7 @@ a#entrar-conta:hover::before {
 
 div#login-descricao {
     position: relative;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     box-sizing: border-box;
     height: 300px;
     width: 50%;
@@ -155,7 +174,7 @@ div#login-descricao::before {
     height: 250px;
     width: 2px;
     right: 20px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
 }
 
 div#login-descricao::after {
@@ -164,5 +183,5 @@ div#login-descricao::after {
     height: 250px;
     width: 2px;
     left: 20px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
 }

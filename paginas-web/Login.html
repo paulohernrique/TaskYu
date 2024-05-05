@@ -13,7 +13,7 @@
             <div id="login-login">
                 <p>Preencha os campos para criar uma conta ou entre em uma conta já existente.</p>
 
-                <form id="login">
+                <form id="login" onclick="verificarLogin()">
                     <input type="text" name="nome" id="nome" placeholder="Nome de usuário">
                     <input type="text" name="email" id="email" placeholder="E-mail">
                     <input type="password" name="senha" id="senha" placeholder="Senha">
@@ -21,12 +21,12 @@
                     <p class="alerta oculto" id="alerta-email">Email inválido.</p>
                     <p class="alerta oculto" id="alerta-senha">A senha deve ter entre 8 e 15 caracteres alfanuméricos sem espaçamento entre eles.</p>
                     <p class="alerta oculto" id="alerta-campos">Preencha todos os campos para criar uma conta.</p>
-                    <button type="submit" id="criar-conta">Criar conta</button>
+                    <button type="submit" id="criar-entrar-conta">Criar conta</button>
                 </form>
 
                 <script src="LoginVerificacao.js"></script>
 
-                <a href="" id="entrar-conta">Entrar</a> 
+                <a href="EntrarConta.html" id="entrar-conta">Entrar</a> 
             </div>
 
             <div id="login-descricao">
