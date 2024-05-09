@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Login.css" title="estilo">
+        <title>TaskYu Login</title>
+    </head>
+    <body>
+        <form id="entrar-conta" onclick="verificarEntrarConta()">
+            <p id="login-titulo">Entrar</p>
+            
+            <input type="text" id="email" name="email" autocomplete="off" placeholder="E-mail">
+            <input type="password" id="senha" name="senha" placeholder="Senha">
+
+            <p class="alerta oculto" id="alerta-campos">Preencha todos os campos para entrar em uma conta ou entre com o Google.</p>
+            <p class="alerta oculto" id="alerta-email">Email inválido.</p>
+            <p class="alerta oculto" id="alerta-senha">Senha e/ou E-mail incorretos.</p>
+
+            <button type="submit" id="entrar">Entrar</button>
+
+            <button id="entrar-google">
+                <img src="../../../assets/icones-login/google-icone.png" id="google-icone">
+                <span>Entrar com Google</span>
+            </button>
+
+            <h6><a id="esqueci-senha" href="">Esqueci minha senha</a></h6>
+        </form>
+
+        <script src="LoginVerificacao.js"></script>
+    </body>
+</html>

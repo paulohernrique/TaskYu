@@ -47,7 +47,7 @@ function verificarLogin(){
 }
 
 function verificarEntrarConta(){
-    document.getElementById("entrar-box").addEventListener("submit", function(evento){
+    document.getElementById("entrar-conta").addEventListener("submit", function(evento){
         evento.preventDefault();
 
         let email = document.getElementById("email").value.trim();
