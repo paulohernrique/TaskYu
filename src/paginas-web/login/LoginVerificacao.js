@@ -1,78 +1,107 @@
-function verificarLogin(){
+
+function validarCampoVazio() {
+    const alertaCampos = document.getElementById("alerta-campos");
+    alertaCampos.classList.add("oculto");
+
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+
+    if ((nome && nome === "") || email === "" || senha === "") {
+        alertaCampos.classList.remove("oculto");
+        return false;
+    }
+    return true;
+}
+
+function validarNome() {
+    const nome = document.getElementById("nome").value.trim().replace(/\s{2,}/g, " ");
+    const alertaNome = document.getElementById("alerta-nome");
+    alertaNome.classList.add("oculto");
+
+    const validacaoNome = /^[a-zA-Z]+(?: [a-zA-Z]+)+$/;
+    if (!validacaoNome.test(nome) || nome.length < 5 || nome.length > 30) {
+        alertaNome.classList.remove("oculto");
+        return false;
+    }
+    return nome;
+}
+
+function validarEmail() {
+    const email = document.getElementById("email").value.trim();
+    const alertaEmail = document.getElementById("alerta-email");
+    alertaEmail.classList.add("oculto");
+
+    const validacaoEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    if (!validacaoEmail.test(email)) {
+        alertaEmail.classList.remove("oculto");
+        return false;
+    }
+    return email;
+}
+
+function validarSenha() {
+    const senha = document.getElementById("senha").value.trim();
+    const alertaSenha = document.getElementById("alerta-senha");
+    alertaSenha.classList.add("oculto");
+
+    const validacaoSenha = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&+_-])[A-Za-z\d@$!%*?&+_-]+$/;
+    if (!validacaoSenha.test(senha) || senha.length < 8 || senha.length > 30) {
+        alertaSenha.classList.remove("oculto");
+        return false;
+    }
+    return senha;
+}
+
+function verificarCriarConta() {
     document.getElementById("login").addEventListener("submit", function (evento) {
         evento.preventDefault();
 
-        let nome = document.getElementById("nome").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let senha = document.getElementById("senha").value.trim();
+        const nome = validarNome();
+        const email = validarEmail();
+        const senha = validarSenha();
 
-        const alertaNome = document.getElementById("alerta-nome");
-        const alertaEmail = document.getElementById("alerta-email");
-        const alertaSenha = document.getElementById("alerta-senha");
-        const alertaCampos = document.getElementById("alerta-campos");
-
-        alertaCampos.classList.add("oculto");
-        alertaNome.classList.add("oculto");
-        alertaEmail.classList.add("oculto");
-        alertaSenha.classList.add("oculto");
-
-        if (nome == "" || email == "" || senha == "") {
-            alertaCampos.classList.remove("oculto");
+        if (!validarCampoVazio) {
             return;
         }
 
-        const validacaoNome = /^[a-zA-ZÀ-ÖØ-öø-ÿ\sçÇ]+$/;
-
-        if (validacaoNome.test(nome) && nome.length <= 30){
-            nome = nome.replace(/\s{2,}/g, " ").split(/\s/).map(function(palavra){
-                return palavra.toLowerCase().charAt(0).toUpperCase() + palavra.slice(1);
-            }).join(" ");
-        } else {
-            alertaNome.classList.remove("oculto");
+        if (!nome) {
             return;
         }
 
-        const validacaoEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-
-        if (!validacaoEmail.test(email)){
-            alertaEmail.classList.remove("oculto");
+        if (!email) {
             return;
         }
 
-        if (!/^\w+$/.test(senha) || senha.length < 8 || senha.length > 15){
-            alertaSenha.classList.remove("oculto");
+        if (!senha) {
             return;
         }
+
+        // TODO - codigo para inserir dados no banco de dados
+        // adicionar autenticação - google
     });
 }
 
-function verificarEntrarConta(){
-    document.getElementById("entrar-conta").addEventListener("submit", function(evento){
+function verificarEntrarConta() {
+    document.getElementById("entrar-conta").addEventListener("submit", function (evento) {
         evento.preventDefault();
 
-        let email = document.getElementById("email").value.trim();
-        let senha = document.getElementById("senha").value.trim();
+        const email = validarEmail();
+        const senha = validarSenha();
 
-        const alertaCampos = document.getElementById("alerta-campos");
-        const alertaEmail = document.getElementById("alerta-email");
-        const alertaSenha = document.getElementById("alerta-senha");
+        if (!validarCampoVazio) {
+            return;
+        }
 
-        alertaCampos.classList.add("oculto");
-        alertaEmail.classList.add("oculto");
-        alertaSenha.classList.add("oculto");
+        if (!email) {
+            return;
+        }
+
+        if (!senha) {
+            return;
+        }
         
-        if (email == "" || senha == "") {
-            alertaCampos.classList.remove("oculto");
-            return;
-        }
-
-        const validacaoEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-
-        if (!validacaoEmail.test(email)){
-            alertaEmail.classList.remove("oculto");
-            return;
-        }
-
-        // adicionar autenticacao - google - busca no banco de dados por email e senha
-    })
+        // TODO - codigo para verificar a correspondencia email e senha
+        // adicionar autenticação - google - busca no banco de dados por email e senha
+    });
 }
