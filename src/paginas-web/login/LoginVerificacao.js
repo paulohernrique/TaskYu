@@ -53,6 +53,24 @@ function validarSenha() {
     return senha;
 }
 
+import { createConnection } from 'mysql';
+import config from '../../../config';
+const connection = createConnection(config);
+
+/*
+connection.connect((err) => {
+    if (err) {
+        console.error('Erro ao conectar ao banco de dados:', err);
+        return;
+    }
+    console.log('Conexão bem-sucedida ao banco de dados.');
+});
+
+// Aqui você pode executar consultas SQL e outras operações no banco de dados
+
+connection.end();
+*/
+
 function verificarCriarConta() {
     document.getElementById("login").addEventListener("submit", function (evento) {
         evento.preventDefault();
