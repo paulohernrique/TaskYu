@@ -53,23 +53,8 @@ function validarSenha() {
     return senha;
 }
 
-import { createConnection } from 'mysql';
-import config from '../../../config';
-const connection = createConnection(config);
-
-/*
-connection.connect((err) => {
-    if (err) {
-        console.error('Erro ao conectar ao banco de dados:', err);
-        return;
-    }
-    console.log('Conexão bem-sucedida ao banco de dados.');
-});
-
-// Aqui você pode executar consultas SQL e outras operações no banco de dados
-
-connection.end();
-*/
+const conexao = require("../../../database/Conexao");
+const bcrypt = require("bcrypt");
 
 function verificarCriarConta() {
     document.getElementById("login").addEventListener("submit", function (evento) {
@@ -95,6 +80,41 @@ function verificarCriarConta() {
             return;
         }
 
+        conexao.connect((err) => {
+            if (err) {
+                console.error('Erro ao conectar ao banco de dados:', err);
+                return;
+            }
+            console.log('Conexão bem-sucedida ao banco de dados.');
+
+            const novoUsuario = {
+                nome: nome, 
+                email: email, 
+                senha: senha
+            };
+
+            bcrypt.hash(novoUsuario.senha, 10, (err, hash) => {
+                if (err) {
+                    console.error('Erro ao gerar hash:', err);
+                    return;
+                }
+            
+                novoUsuario.senha = hash;
+
+                conexao.query(
+                    'insert into usuario (nome, email, hash_senha) values (?, ?, ?)',
+                    [novoUsuario.nome, novoUsuario.email, novoUsuario.senha],
+                    (err) => {
+                        if (err) {
+                            console.error('Erro ao inserir dados:', err);
+                            return;
+                        }
+                    }
+                );
+            });
+
+            connection.end();
+        });
         // TODO - codigo para inserir dados no banco de dados
         // adicionar autenticação - google
     });
