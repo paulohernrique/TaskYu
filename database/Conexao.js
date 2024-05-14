@@ -1,5 +1,12 @@
-const { createConnection } = require('mysql');
-const config = require('../config');
-const conexao = createConnection(config);
+const mysql = require('mysql');
 
-export default conexao;
+const dbConfig = {
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: 'taskyu'
+}
+
+const conexao = mysql.createConnection(dbConfig);
+
+module.exports = conexao;

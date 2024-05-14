@@ -101,34 +101,9 @@ function verificarCriarConta() {
             }
             console.log('Conexão bem-sucedida ao banco de dados.');
 
-            const novoUsuario = {
-                nome: nome, 
-                email: email, 
-                senha: senha
-            };
-
-            bcrypt.hash(novoUsuario.senha, 10, (err, hash) => {
-                if (err) {
-                    console.error('Erro ao gerar hash:', err);
-                    return;
-                }
-            
-                novoUsuario.senha = hash;
-
-                conexao.query(
-                    'insert into usuario (nome, email, hash_senha) values (?, ?, ?)',
-                    [novoUsuario.nome, novoUsuario.email, novoUsuario.senha],
-                    (err) => {
-                        if (err) {
-                            console.error('Erro ao inserir dados:', err);
-                            return;
-                        }
-                    }
-                );
-            });
-
-            connection.end();
         });
+        
+        connection.end();
         // TODO - codigo para inserir dados no banco de dados
         // adicionar autenticação - google
     });
