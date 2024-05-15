@@ -1,12 +1,12 @@
-const mysql = require('mysql');
+import { createConnection } from 'mysql';
 
 const dbConfig = {
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
     password: '1234',
     database: 'taskyu'
 }
 
-const conexao = mysql.createConnection(dbConfig);
+const conexao = createConnection(dbConfig);
 
-module.exports = conexao;
+export default conexao;

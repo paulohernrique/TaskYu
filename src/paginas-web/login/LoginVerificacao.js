@@ -48,8 +48,8 @@ function validarSenha() {
     return senha;
 }
 
-const conexao = require("../../../database/Conexao");
-const bcrypt = require("bcrypt");
+//import conexao from "../../../database/Conexao";
+//import bcrypt from "bcrypt";
 
 function verificarCriarConta() {
     document.getElementById("login").addEventListener("submit", function (evento) {
@@ -100,10 +100,10 @@ function verificarCriarConta() {
                 return;
             }
             console.log('Conexão bem-sucedida ao banco de dados.');
-
+            
+            conexao.end();
         });
         
-        connection.end();
         // TODO - codigo para inserir dados no banco de dados
         // adicionar autenticação - google
     });
@@ -113,20 +113,35 @@ function verificarEntrarConta() {
     document.getElementById("entrar-conta").addEventListener("submit", function (evento) {
         evento.preventDefault();
 
+        const alertaCampos = document.getElementById("alerta-campos");
+        alertaCampos.classList.add("oculto");
+
+        const alertaEmail = document.getElementById("alerta-email");
+        alertaEmail.classList.add("oculto");
+
+        const alertaSenha = document.getElementById("alerta-senha");
+        alertaSenha.classList.add("oculto");
+
+        if (!validarCampoVazio()) {
+            alertaCampos.classList.remove("oculto");
+
+            return;
+        }
+
         const email = validarEmail();
-        const senha = validarSenha();
-
-        if (!validarCampoVazio) {
-            return;
-        }
-
         if (!email) {
+            alertaEmail.classList.remove("oculto");
+
             return;
         }
 
+        const senha = validarSenha();
         if (!senha) {
+            alertaSenha.classList.remove("oculto");
+
             return;
         }
+
         
         // TODO - codigo para verificar a correspondencia email e senha
         // adicionar autenticação - google - busca no banco de dados por email e senha
