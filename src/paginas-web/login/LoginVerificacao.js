@@ -94,15 +94,7 @@ function verificarCriarConta() {
             return;
         }
 
-        conexao.connect((err) => {
-            if (err) {
-                console.error('Erro ao conectar ao banco de dados:', err);
-                return;
-            }
-            console.log('Conexão bem-sucedida ao banco de dados.');
-            
-            conexao.end();
-        });
+        
         
         // TODO - codigo para inserir dados no banco de dados
         // adicionar autenticação - google
