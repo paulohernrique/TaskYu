@@ -10,47 +10,43 @@ body {
     align-items: center;
     font-family: Georgia, Bodoni, "Times New Roman";
 
-    & #login-descricao {
-        position: relative;
-        width: 55%;
-        height: 75%;
-        background: linear-gradient(to right, black, white, #6767c8);
-        border-radius: 3em;
-        padding: 0;
-        display: flex;
-        overflow: hidden;
-        min-width: 38em;
-        min-height: 25em;
-
-        & #descricao {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: rgb(23, 23, 23);
-            text-align: center;
-            width: 55%;
-            height: 100%;
-            box-sizing: border-box;
-
-            & h1 {
-                margin: 0 1em 0 1em;
-            }
-            & p {
-                margin: 3em 6em 0 6em;
-            }
-        }
-    }
-
-    & #login {
+    & #descricao {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 45%;
+        justify-content: center;
+        color: rgb(23, 23, 23);
+        background: linear-gradient(to right, white, #6767c8);
+        border-radius: 3em;
+        text-align: center;
+        margin-left: -5em;
+        padding-left: 5em;
+        width: calc(30% + 5em);
+        height: 73%;
+        min-height: 25em;
+        box-sizing: border-box;
+        z-index: -1;
+
+
+        & h1 {
+            margin: 0 1em 0 1em;
+        }
+        & p {
+            margin: 3em 6em 0 6em;
+        }
+    }
+
+    & #login, 
+    #entrar-conta {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 25%;
         min-width: 265px;
-        height: 100%;
+        height: 75%;
+        min-height: 26em;
         padding: 0 2em 1em 2em;
         background-color: #171717;
         border-radius: 3em;
@@ -88,6 +84,10 @@ body {
             cursor: pointer;
             border: 1px solid black;
         }
+
+        & #login-entrar {
+            margin-top: auto;
+        }
     
         & button:hover {
             background-color: black;
@@ -120,7 +120,7 @@ body {
             margin-top: auto;
         }
 
-        & #esqueci-senha {
+        & #esqueci-senha {  
             color: red;
 
             &::before {
@@ -165,16 +165,29 @@ body {
     width: 88%;
 }
 
-#entrar-conta > .alerta {
-    top: 25.1em;
-}
-
 .oculto {
     display: none;
 }
 
 #google-icone {
-    height: 1rem;
+    height: 1em;
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 815px) {
+    body > #descricao {
+        display: none;
+    }
+
+    body > #login,
+    body > #entrar-conta {
+        width: 20em;
+    }
+}
+
+@media (max-height: 422px) {
+    body > #descricao {
+        display: none;
+    }
 }
