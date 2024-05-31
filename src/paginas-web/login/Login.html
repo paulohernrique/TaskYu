@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Login.css" title="estilo">
-        <title>TaskYu Login</title>
+        <title>TaskYu Criar Conta</title>
     </head>
-    <body>       
-        <form id="login" onclick="verificarCriarConta()">
-            
-            <p id="login-titulo">Login</p>
+    
+    <body>
+        <form id="login">
+            <p id="login-titulo">Criar Conta</p>
 
             <input id="nome" name="nome" autocomplete="off" placeholder="Nome de usuário" type="text">
             <input id="email" name="email" autocomplete="off" placeholder="E-mail" type="text">
@@ -38,6 +38,10 @@
         </div>
 
         <script src="LoginVerificacao.js"></script>
-
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                verificarCriarConta();
+            });
+        </script>
     </body>
 </html>

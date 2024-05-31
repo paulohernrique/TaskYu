@@ -27,6 +27,7 @@ body {
         min-height: 25em;
         box-sizing: border-box;
         z-index: -1;
+        user-select: none;
 
 
         & h1 {
@@ -117,7 +118,7 @@ body {
         }
 
         & #login-criar {
-            margin-top: auto;
+            margin-top: 3em;
         }
 
         & #esqueci-senha {  
@@ -155,14 +156,17 @@ body {
     margin-bottom: 12vh;
     color: rgb(255, 255, 255);
     font-size: 1.2em;
+    user-select: none;
 }
 
 .alerta {
+    position: absolute;
+    top: 66%;
     text-align: justify;
     color: rgb(255, 6, 6);
-    margin: 0.2em 1.5em 0 1.5em;
+    margin: 0 3.5em;
     font-size: 0.6em;
-    width: 88%;
+    width: 70%;
 }
 
 .oculto {

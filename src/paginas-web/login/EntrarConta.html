@@ -4,11 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Login.css" title="estilo">
-        <title>TaskYu Login</title>
+        <title>TaskYu Entrar</title>
     </head>
     
     <body>
-        <form id="entrar-conta" onclick="verificarEntrarConta()">
+        <form id="entrar-conta">
             <p id="login-titulo">Entrar</p>
             
             <input type="text" id="email" name="email" autocomplete="off" placeholder="E-mail">
@@ -29,5 +29,10 @@
         </form>
 
         <script src="LoginVerificacao.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                verificarEntrarConta();
+            });
+        </script>
     </body>
 </html>
