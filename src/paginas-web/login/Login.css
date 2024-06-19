@@ -9,151 +9,147 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Georgia, Bodoni, "Times New Roman";
+}
 
-    & #descricao {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: rgb(23, 23, 23);
-        background: linear-gradient(to right, white, #6767c8);
-        border-radius: 3em;
-        text-align: center;
-        margin-left: -5em;
-        padding-left: 5em;
-        width: calc(30% + 5em);
-        height: 73%;
-        min-height: 25em;
-        box-sizing: border-box;
-        z-index: -1;
-        user-select: none;
+#descricao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(23, 23, 23);
+    background: linear-gradient(to right, white, #6767c8);
+    border-radius: 3em;
+    text-align: center;
+    margin-left: -5em;
+    padding-left: 5em;
+    width: calc(30% + 5em);
+    height: 73%;
+    min-height: 25em;
+    box-sizing: border-box;
+    z-index: -1;
+    user-select: none;
+}
+
+#descricao h1 {
+    margin: 0 1em;
+}
+
+#descricao p {
+    margin: 3em 6em 0;
+}
+
+#login,
+#entrar-conta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    min-width: 265px;
+    height: 75%;
+    min-height: 33em;
+    padding: 0 2em 1em 2em;
+    background-color: #171717;
+    border-radius: 3em;
+    box-sizing: border-box;
+    border: 1px solid black;
+    box-shadow: 10px 0 50px rgb(0, 0, 0);
+}
+
+#login input {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 1em;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 0 1em;
+    height: 8%;
+    min-height: 2em;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+#login button {
+    padding: 0.5em;
+    margin: 5em 0 3em 0;
+    border-radius: 10px;
+    width: 8em;
+    height: 6%;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+}
 
 
-        & h1 {
-            margin: 0 1em 0 1em;
-        }
-        & p {
-            margin: 3em 6em 0 6em;
-        }
-    }
 
-    & #login, 
-    #entrar-conta {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 25%;
-        min-width: 265px;
-        height: 75%;
-        min-height: 26em;
-        padding: 0 2em 1em 2em;
-        background-color: #171717;
-        border-radius: 3em;
-        box-sizing: border-box;
-        border: 1px solid black;
-        box-shadow: 10px 0 50px rgb(0, 0, 0);
+#login button:hover {
+    background-color: black;
+    color: white;
+}
 
-        & input {
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            margin-top: 1em;
-            border-radius: 25px;
-            box-sizing: border-box;
-            padding: 0 1em;
-            height: 3.5em;
-            width: 100%;
-            border: none;
-            outline: none;
-            color: white;
-            background-color: #171717;
-            box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-        }
-    
-        & button {
-            padding: 0.5em;
-            margin-bottom: 0.5em;
-            border-radius: 5px;
-            width: 8em;
-            border: none;
-            outline: none;
-            transition: .4s ease-in-out;
-            background-color: #252525;
-            color: white;
-            cursor: pointer;
-            border: 1px solid black;
-        }
+#login a {
+    position: relative;
+    margin-top: 0.5em;
+    text-decoration: none;
+    color: white;
+}
 
-        & #login-entrar {
-            margin-top: auto;
-        }
-    
-        & button:hover {
-            background-color: black;
-            color: white;
-        }
-    
-        & a {
-            position: relative;
-            margin-top: 0.5em;
-            text-decoration: none;
-            color: white;
-    
-            &::before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 1px;
-                background-color: rgb(161, 161, 161);
-                transition: width 0.3s ease-in-out; 
-            }
-            
-            &:hover::before {
-                width: 100%;
-            }
-        }
+#login a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgb(161, 161, 161);
+    transition: width 0.3s ease-in-out;
+}
 
-        & #login-criar {
-            margin-top: 3em;
-        }
+#login a:hover::before {
+    width: 100%;
+}
 
-        & #esqueci-senha {  
-            color: red;
+#login #esqueci-senha {
+    color: red;
+}
 
-            &::before {
-                background-color: red;
-            }
-        }
+#login #esqueci-senha::before {
+    background-color: red;
+}
 
-        & #entrar-google {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1em;
-            box-shadow: 1px 1px 10px black inset;
-            background-color: white;
-            color: black;
-            width: 15em;
-            height: 2.5em;
-            margin: 0.5em 0;
-            transition: background-color .3s ease-in-out, color .3s ease-in-out; 
+#login #entrar-google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    box-shadow: 1px 1px 10px black inset;
+    background-color: white;
+    color: black;
+    width: 15em;
+    height: 6%;
+    margin: 0 0 3em 0;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
 
-            &:hover {
-                background-color: black;
-                color: white;
-            }
-        }
-    }
-}   
+#login #entrar-google:hover {
+    background-color: black;
+    color: white;
+}
 
 #login-titulo {
     text-align: center;
     margin-top: 2em;
-    margin-bottom: 12vh;
+    margin-bottom: 16vh;
     color: rgb(255, 255, 255);
     font-size: 1.2em;
     user-select: none;
@@ -161,12 +157,12 @@ body {
 
 .alerta {
     position: absolute;
-    top: 66%;
+    top: 59%;
+    left: 5em;
     text-align: justify;
     color: rgb(255, 6, 6);
-    margin: 0 3.5em;
     font-size: 0.6em;
-    width: 70%;
+    width: calc(100% - 10em);
 }
 
 .oculto {
@@ -180,18 +176,18 @@ body {
 }
 
 @media (max-width: 815px) {
-    body > #descricao {
+    body #descricao {
         display: none;
     }
 
-    body > #login,
-    body > #entrar-conta {
+    body #login,
+    body #entrar-conta {
         width: 20em;
     }
 }
 
 @media (max-height: 422px) {
-    body > #descricao {
+    body #descricao {
         display: none;
     }
 }
