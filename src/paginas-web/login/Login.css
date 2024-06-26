@@ -48,7 +48,7 @@ body {
     width: 25%;
     min-width: 265px;
     height: 75%;
-    min-height: 33em;
+    min-height: 35em;
     padding: 0 2em 1em 2em;
     background-color: #171717;
     border-radius: 3em;
@@ -57,7 +57,17 @@ body {
     box-shadow: 10px 0 50px rgb(0, 0, 0);
 }
 
-#login input {
+.coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 2em;
+    box-sizing: border-box;
+}
+
+input {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -65,7 +75,7 @@ body {
     border-radius: 25px;
     box-sizing: border-box;
     padding: 0 1em;
-    height: 8%;
+    height: 23%;
     min-height: 2em;
     width: 100%;
     border: none;
@@ -75,12 +85,12 @@ body {
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }
 
-#login button {
+button {
     padding: 0.5em;
     margin: 5em 0 3em 0;
     border-radius: 10px;
     width: 8em;
-    height: 6%;
+    height: 17%;
     border: none;
     outline: none;
     transition: .4s ease-in-out;
@@ -92,19 +102,19 @@ body {
 
 
 
-#login button:hover {
+button:hover {
     background-color: black;
     color: white;
 }
 
-#login a {
+a {
     position: relative;
     margin-top: 0.5em;
     text-decoration: none;
     color: white;
 }
 
-#login a::before {
+a::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -115,19 +125,19 @@ body {
     transition: width 0.3s ease-in-out;
 }
 
-#login a:hover::before {
+a:hover::before {
     width: 100%;
 }
 
-#login #esqueci-senha {
+#esqueci-senha {
     color: red;
 }
 
-#login #esqueci-senha::before {
+#esqueci-senha::before {
     background-color: red;
 }
 
-#login #entrar-google {
+#entrar-google {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +151,7 @@ body {
     transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 
-#login #entrar-google:hover {
+#entrar-google:hover {
     background-color: black;
     color: white;
 }
@@ -155,22 +165,21 @@ body {
     user-select: none;
 }
 
-.alerta {
-    position: absolute;
-    top: 59%;
-    left: 5em;
-    text-align: justify;
+#alertas {
+    position: relative;
+    width: calc(100% - 6em);
     color: rgb(255, 6, 6);
     font-size: 0.6em;
-    width: calc(100% - 10em);
+    text-align: justify;
 }
 
-.oculto {
-    display: none;
+.alerta {
+    position: absolute;
+    visibility: hidden;
 }
 
 #google-icone {
-    height: 1em;
+    height: 1.5em;
     display: flex;
     justify-content: center;
 }
@@ -186,8 +195,24 @@ body {
     }
 }
 
-@media (max-height: 422px) {
+@media (max-height: 580px) {
     body #descricao {
         display: none;
+    }
+
+    body #login {
+        width: 40%;
+        min-height: 20em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    #login-titulo {
+        position: absolute;
+        top: 0;
+        margin-top: 1em;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }

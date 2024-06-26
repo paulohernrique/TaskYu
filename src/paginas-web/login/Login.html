@@ -11,21 +11,27 @@
         <form id="login">
             <p id="login-titulo">Criar Conta</p>
 
-            <input id="nome" name="nome" autocomplete="off" placeholder="Nome de usuário" type="text">
-            <input id="email" name="email" autocomplete="off" placeholder="E-mail" type="text">
-            <input id="senha" name="senha" placeholder="Senha" type="password">
+            <div class="coluna" id="esquerda">
+                <input id="nome" name="nome" autocomplete="off" placeholder="Nome de usuário" type="text">
+                <input id="email" name="email" autocomplete="off" placeholder="E-mail" type="text">
+                <input id="senha" name="senha" placeholder="Senha" type="password">
 
-            <p class="alerta oculto" id="alerta-nome">O nome de usuário deve ser composto e possuir entre 5 e 30 letras, sem números, pontuação ou símbolos.</p>
-            <p class="alerta oculto" id="alerta-email">Email inválido.</p>
-            <p class="alerta oculto" id="alerta-senha">A senha deve possuir entre 8 e 30 caracteres, sem espaços, pelo menos uma letra, número e símbolo.</p>
-            <p class="alerta oculto" id="alerta-campos">Preencha todos os campos para criar uma conta.</p>
+                <div id="alertas">
+                    <p class="alerta" id="alerta-nome">O nome de usuário deve ser composto e possuir entre 5 e 30 letras, sem números, pontuação ou símbolos.</p>
+                    <p class="alerta" id="alerta-email">Email inválido.</p>
+                    <p class="alerta" id="alerta-senha">A senha deve possuir entre 8 e 30 caracteres, sem espaços, pelo menos uma letra, número e símbolo.</p>
+                    <p class="alerta" id="alerta-campos">Preencha todos os campos para criar uma conta.</p>
+                </div>
+            </div>
             
-            <button id="login-criar" type="submit">Criar conta</button>
-            <button id="entrar-google">
-                <img src="../../../assets/icones-login/google-icone.png" id="google-icone">
-                <span>Criar com Google</span>
-            </button>
-            <a href="EntrarConta.html" id="login-entrar">Entrar</a>
+            <div class="coluna" id="direita">
+                <button id="login-criar" type="submit">Criar conta</button>
+                <button id="entrar-google">
+                    <img src="../../../assets/icones-login/google-icone.png" id="google-icone">
+                    <span>Criar com Google</span>
+                </button>
+                <a href="EntrarConta.html" id="login-entrar">Entrar</a>
+            </div>
         </form>
         
         <div id="descricao">

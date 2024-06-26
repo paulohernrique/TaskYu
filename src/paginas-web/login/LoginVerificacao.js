@@ -55,47 +55,45 @@ function verificarCriarConta() {
     document.getElementById("login").addEventListener("submit", function (evento) {
         evento.preventDefault();
 
-        const alertaCampos = document.getElementById("alerta-campos");
-        alertaCampos.classList.add("oculto");
+        var alertaCampos = document.getElementById("alerta-campos");
+        alertaCampos.style.visibility = "hidden";
 
-        const alertaNome = document.getElementById("alerta-nome");
-        alertaNome.classList.add("oculto");
+        var alertaNome = document.getElementById("alerta-nome");
+        alertaNome.style.visibility = "hidden";
 
-        const alertaEmail = document.getElementById("alerta-email");
-        alertaEmail.classList.add("oculto");
+        var alertaEmail = document.getElementById("alerta-email");
+        alertaEmail.style.visibility = "hidden";
 
-        const alertaSenha = document.getElementById("alerta-senha");
-        alertaSenha.classList.add("oculto");
+        var alertaSenha = document.getElementById("alerta-senha");
+        alertaSenha.style.visibility = "hidden";
 
         if (!validarCampoVazio()) {
-            alertaCampos.classList.remove("oculto");
+            alertaCampos.style.visibility = "visible";
 
             return;
         }
 
         const nome = validarNome();
         if (!nome) {
-            alertaNome.classList.remove("oculto");
+            alertaNome.style.visibility = "visible";
 
             return;
         }
 
         const email = validarEmail();
         if (!email) {
-            alertaEmail.classList.remove("oculto");
+            alertaEmail.style.visibility = "visible";
 
             return;
         }
 
         const senha = validarSenha();
         if (!senha) {
-            alertaSenha.classList.remove("oculto");
+            alertaSenha.style.visibility = "visible";
 
             return;
         }
 
-        
-        
         // TODO - codigo para inserir dados no banco de dados
         // adicionar autenticação - google
     });
@@ -106,33 +104,34 @@ function verificarEntrarConta() {
         evento.preventDefault();
 
         const alertaCampos = document.getElementById("alerta-campos");
-        alertaCampos.classList.add("oculto");
+        alertaCampos.style.display = "none";
 
         const alertaEmail = document.getElementById("alerta-email");
-        alertaEmail.classList.add("oculto");
+        alertaEmail.style.display = "none";
 
         const alertaSenha = document.getElementById("alerta-senha");
-        alertaSenha.classList.add("oculto");
+        alertaSenha.style.display = "none";
 
         if (!validarCampoVazio()) {
-            alertaCampos.classList.remove("oculto");
+            alertaCampos.style.display = "";
 
             return;
         }
 
         const email = validarEmail();
         if (!email) {
-            alertaEmail.classList.remove("oculto");
+            alertaEmail.style.display = "";
 
             return;
         }
 
         const senha = validarSenha();
         if (!senha) {
-            alertaSenha.classList.remove("oculto");
+            alertaSenha.style.display = "";
 
             return;
         }
+
 
         
         // TODO - codigo para verificar a correspondencia email e senha
