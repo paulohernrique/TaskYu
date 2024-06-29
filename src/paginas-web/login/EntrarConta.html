@@ -11,28 +11,29 @@
         <form id="entrar-conta">
             <p id="login-titulo">Entrar</p>
             
-            <input type="text" id="email" name="email" autocomplete="off" placeholder="E-mail">
-            <input type="password" id="senha" name="senha" placeholder="Senha">
+            <div class="coluna" id="coluna1">
+                <input type="text" id="email" name="email" autocomplete="off" placeholder="E-mail">
+                <input type="password" id="senha" name="senha" placeholder="Senha">
 
-            <p class="alerta oculto" id="alerta-campos">Preencha todos os campos para entrar em uma conta ou entre com o Google.</p>
-            <p class="alerta oculto" id="alerta-email">Email inválido.</p>
-            <p class="alerta oculto" id="alerta-senha">Senha e/ou E-mail incorretos.</p>
+                <div id="alertas">
+                    <p class="alerta oculto" id="alerta-campos">Preencha todos os campos para entrar em uma conta ou entre com o Google.</p>
+                    <p class="alerta oculto" id="alerta-email">Email inválido.</p>
+                    <p class="alerta oculto" id="alerta-senha">Senha inválida.</p>
+                </div>
+            </div>
+            
+            <div class="coluna" id="coluna2">
+                <button type="submit" id="login-entrar">Entrar</button>
 
-            <button type="submit" id="login-entrar">Entrar</button>
+                <button id="entrar-google">
+                    <img src="../../../assets/icones-login/google-icone.png" id="google-icone">
+                    <span>Entrar com Google</span>
+                </button>
 
-            <button id="entrar-google">
-                <img src="../../../assets/icones-login/google-icone.png" id="google-icone">
-                <span>Entrar com Google</span>
-            </button>
-
-            <h6><a id="esqueci-senha" href="">Esqueci minha senha</a></h6>
+                <h6><a id="esqueci-senha" href="">Esqueci minha senha</a></h6>
+            </div>
         </form>
 
         <script src="LoginVerificacao.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                verificarEntrarConta();
-            });
-        </script>
     </body>
 </html>

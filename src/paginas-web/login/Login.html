@@ -11,7 +11,7 @@
         <form id="login">
             <p id="login-titulo">Criar Conta</p>
 
-            <div class="coluna" id="esquerda">
+            <div class="coluna" id="coluna1">
                 <input id="nome" name="nome" autocomplete="off" placeholder="Nome de usuário" type="text">
                 <input id="email" name="email" autocomplete="off" placeholder="E-mail" type="text">
                 <input id="senha" name="senha" placeholder="Senha" type="password">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             
-            <div class="coluna" id="direita">
+            <div class="coluna" id="coluna2">
                 <button id="login-criar" type="submit">Criar conta</button>
                 <button id="entrar-google">
                     <img src="../../../assets/icones-login/google-icone.png" id="google-icone">
@@ -44,10 +44,5 @@
         </div>
 
         <script src="LoginVerificacao.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                verificarCriarConta();
-            });
-        </script>
     </body>
 </html>

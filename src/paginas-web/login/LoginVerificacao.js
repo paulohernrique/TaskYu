@@ -1,100 +1,93 @@
-
 function validarCampoVazio() {
-    const nome = document.getElementById("nome").value.trim();
+    const nome = document.getElementById("nome")?.value.trim();
     const email = document.getElementById("email").value.trim();
     const senha = document.getElementById("senha").value.trim();
 
-    if (nome === null) {
-        if (email === "" || senha === "") {
-            return false;
-        }
-
-    } else {
-        if (nome === "" || email === "" || senha === "") {
-            return false;
-        }
+    if (nome !== undefined) {
+        return nome !== "" && email !== "" && senha !== "";
     }
-   
-    return true;
+
+    return email !== "" && senha !== "";
 }
 
 function validarNome() {
     const nome = document.getElementById("nome").value.trim().replace(/\s{2,}/g, " ");
+    const validacaoNome = /^[a-zA-ZÀ-ÿ]+(?: [a-zA-ZÀ-ÿ]+)+$/;
 
-    const validacaoNome = /^[a-zA-Z]+(?: [a-zA-Z]+)+$/;
-    if (!validacaoNome.test(nome) || nome.length < 5 || nome.length > 30) {
-        return false;
+    if (validacaoNome.test(nome) && nome.length >= 5 && nome.length <= 30) {
+        return nome;
     }
-    return nome;
+
+    return false;
 }
 
 function validarEmail() {
     const email = document.getElementById("email").value.trim();
+    const validacaoEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-    const validacaoEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    if (!validacaoEmail.test(email)) {
-        return false;
+    if (validacaoEmail.test(email)) {
+        return email;
     }
-    return email;
+
+    return false;
 }
 
 function validarSenha() {
     const senha = document.getElementById("senha").value.trim();
+    const validacaoSenha = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&+_-])[A-Za-z\d@$!%*?&+_-]+$/;
 
-    const validacaoSenha = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%#*?&+_-])[A-Za-z\d@$!%#*?&+_-]+$/;
-    if (!validacaoSenha.test(senha) || senha.length < 8 || senha.length > 30) {
-        return false;
+    if (validacaoSenha.test(senha) && senha.length >= 8 && senha.length <= 30) {
+        return senha;
     }
-    return senha;
+
+    return false;
 }
 
-//import conexao from "../../../database/Conexao";
-//import bcrypt from "bcrypt";
+function exibirAlerta(id, visivel) {
+    const alerta = document.getElementById(id);
+    alerta.style.visibility = visivel ? "visible" : "hidden";
+}
 
 function verificarCriarConta() {
     document.getElementById("login").addEventListener("submit", function (evento) {
         evento.preventDefault();
 
-        var alertaCampos = document.getElementById("alerta-campos");
-        alertaCampos.style.visibility = "hidden";
-
-        var alertaNome = document.getElementById("alerta-nome");
-        alertaNome.style.visibility = "hidden";
-
-        var alertaEmail = document.getElementById("alerta-email");
-        alertaEmail.style.visibility = "hidden";
-
-        var alertaSenha = document.getElementById("alerta-senha");
-        alertaSenha.style.visibility = "hidden";
+        exibirAlerta("alerta-campos", false);
+        exibirAlerta("alerta-nome", false);
+        exibirAlerta("alerta-email", false);
+        exibirAlerta("alerta-senha", false);
 
         if (!validarCampoVazio()) {
-            alertaCampos.style.visibility = "visible";
-
+            exibirAlerta("alerta-campos", true);
             return;
         }
 
         const nome = validarNome();
         if (!nome) {
-            alertaNome.style.visibility = "visible";
-
+            exibirAlerta("alerta-nome", true);
             return;
         }
 
         const email = validarEmail();
         if (!email) {
-            alertaEmail.style.visibility = "visible";
-
+            exibirAlerta("alerta-email", true);
             return;
         }
 
         const senha = validarSenha();
         if (!senha) {
-            alertaSenha.style.visibility = "visible";
-
+            exibirAlerta("alerta-senha", true);
             return;
         }
 
-        // TODO - codigo para inserir dados no banco de dados
+        // Criar objeto com os valores validados
+        const usuario = {
+            nome: nome,
+            email: email,
+            senha: senha
+        };
+
+        // TODO - código para inserir dados no banco de dados
         // adicionar autenticação - google
     });
 }
@@ -103,38 +96,44 @@ function verificarEntrarConta() {
     document.getElementById("entrar-conta").addEventListener("submit", function (evento) {
         evento.preventDefault();
 
-        const alertaCampos = document.getElementById("alerta-campos");
-        alertaCampos.style.display = "none";
-
-        const alertaEmail = document.getElementById("alerta-email");
-        alertaEmail.style.display = "none";
-
-        const alertaSenha = document.getElementById("alerta-senha");
-        alertaSenha.style.display = "none";
+        exibirAlerta("alerta-campos", false);
+        exibirAlerta("alerta-email", false);
+        exibirAlerta("alerta-senha", false);
 
         if (!validarCampoVazio()) {
-            alertaCampos.style.display = "";
-
+            exibirAlerta("alerta-campos", true);
             return;
         }
 
         const email = validarEmail();
         if (!email) {
-            alertaEmail.style.display = "";
-
+            exibirAlerta("alerta-email", true);
             return;
         }
 
         const senha = validarSenha();
         if (!senha) {
-            alertaSenha.style.display = "";
-
+            exibirAlerta("alerta-senha", true);
             return;
         }
 
+        // Criar objeto com os valores validados
+        const credenciais = {
+            email: email,
+            senha: senha
+        };
 
-        
-        // TODO - codigo para verificar a correspondencia email e senha
+        // TODO - código para verificar a correspondência email e senha
         // adicionar autenticação - google - busca no banco de dados por email e senha
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById("login")) {
+        verificarCriarConta();
+    }
+
+    if (document.getElementById("entrar-conta")) {
+        verificarEntrarConta();
+    }
+});
