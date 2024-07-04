@@ -24,7 +24,7 @@ body {
     margin-left: -5em;
     padding-left: 5em;
     width: calc(30% + 5em);
-    height: 73%;
+    height: 80%;
     min-height: 25em;
     box-sizing: border-box;
     z-index: -1;
@@ -44,8 +44,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 75%;
-    min-height: 35em;
+    height: 85%;
     padding: 0 2em 1em 2em;
     background-color: #171717;
     border-radius: 3em;
@@ -55,8 +54,8 @@ form {
 }
 
 #login {
-    width: 25%;
-    min-width: 265px;
+    width: 20em;
+    min-height: 33em;
 }
 
 #entrar-conta {
@@ -67,18 +66,18 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    border: 1px solid black;
     box-sizing: border-box;
 }
 
-#login #coluna1 {
+#coluna1 {
     height: 45%;
+    width: 100%;
 }
 
 #coluna2 {
     gap: 1.5em;
     height: 24%;
+    width: min-content;
 }
 
 #entrar-conta #coluna1 {
@@ -93,7 +92,7 @@ input {
     border-radius: 25px;
     box-sizing: border-box;
     padding: 0 1em;
-    min-height: 2em;
+    min-height: 3em;
     width: 100%;
     border: none;
     outline: none;
@@ -114,7 +113,7 @@ button {
     padding: 0.5em;
     border-radius: 10px;
     width: 8em;
-    height: 25%;
+    height: 3em;
     border: none;
     outline: none;
     transition: .4s ease-in-out;
@@ -168,8 +167,8 @@ a:hover::before {
     box-shadow: 1px 1px 10px black inset;
     background-color: white;
     color: black;
-    width: 70%;
-    height: 25%;
+    width: 12.5em;
+    height: 3em;
     transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 
@@ -208,42 +207,38 @@ a:hover::before {
     justify-content: center;
 }
 
-@media (max-width: 815px) {
+@media (max-width: 815px), (max-height: 580px) {
     body #descricao {
         display: none;
     }
 }
 
 @media (max-width: 495px) {
-    body #login {
-        width: 100%;
+    form {
+        width: 100% !important;
     }
 
-    body #entrar-conta {
-        width: 100%;
-    }
 }
 
 @media (max-height: 495px) {
-    body #login {
-        height: 100%;
-    }
-
-    body #entrar-conta {
+    form {
         height: 100%;
     }
 }
 
-@media (max-height: 580px) {
-    body #descricao {
-        display: none;
+@media (max-height: 550px) {
+    form {
+        display: flex;
+        flex-direction: row;
     }
 
     body #login {
-        min-height: 20em;
-        display: flex;
-        flex-direction: row;
-        min-width: 24em;
+        width: 30em;
+        min-height: 24em;
+    }
+
+    body #entrar-conta {
+        width: 30em;
         min-height: 24em;
     }
 
@@ -256,21 +251,36 @@ a:hover::before {
     }
 
     .coluna {
-        width: calc(100% - 2em);
-        margin-top: 5em;
+        margin-top: 10em;
+        gap: 2em;   
     }
 
-    #coluna1 {
-        height: 100%;
+    #login #coluna1 {
+        height: 70%;
+        width: 50%;
+        gap: 1em;
+    }
+
+    #entrar-conta #coluna1 {
+        height: 60%;
+        width: 50%;
     }
 
     #coluna2 {
         height: 40%;
-        gap: 2em;
+        margin-left: auto;
     }
 
     input {
         height: 30%;
+    }
+
+    #login #alertas {
+        margin-top: -1.5em;
+    }
+
+    #entrar-conta #alertas {
+        margin-top: -3em;
     }
 
     a {
