@@ -1,3 +1,4 @@
+/* Estilos Gerais */
 body {
     position: relative;
     background: linear-gradient(to top, rgb(0, 0, 0), #0c1821);
@@ -11,6 +12,7 @@ body {
     font-family: Georgia, Bodoni, "Times New Roman";
 }
 
+/* Seção de Descrição */
 #descricao {
     position: relative;
     display: flex;
@@ -39,6 +41,7 @@ body {
     margin: 3em 6em 0;
 }
 
+/* Estilos dos Formulários */
 form {
     position: relative;
     display: flex;
@@ -60,6 +63,7 @@ form {
 
 #entrar-conta {
     width: 23em;
+    padding-bottom: 2em;
 }
 
 .coluna {
@@ -74,20 +78,20 @@ form {
     width: 100%;
 }
 
+#entrar-conta #coluna1 {
+    height: 35%;
+}
+
 #coluna2 {
     gap: 1.5em;
     height: 24%;
     width: min-content;
 }
 
-#entrar-conta #coluna1 {
-    height: 35%;
-}
-
+/* Estilos dos Inputs */
 input {
     display: flex;
     justify-content: center;
-    flex-direction: row;
     margin-top: 1em;
     border-radius: 25px;
     box-sizing: border-box;
@@ -109,7 +113,8 @@ input {
     height: 30%;
 }
 
-button {
+/* Estilos dos Botões */
+button, #entrar-google {
     padding: 0.5em;
     border-radius: 10px;
     width: 8em;
@@ -117,15 +122,31 @@ button {
     border: none;
     outline: none;
     transition: .4s ease-in-out;
-    background-color: #252525;
-    color: white;
     cursor: pointer;
     border: 1px solid black;
 }
 
-
+button {
+    background-color: #252525;
+    color: white;
+}
 
 button:hover {
+    background-color: black;
+}
+
+#entrar-google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    box-shadow: 1px 1px 10px black inset;
+    background-color: white;
+    color: black;
+    width: 12.5em;
+}
+
+#entrar-google:hover {
     background-color: black;
     color: white;
 }
@@ -159,31 +180,18 @@ a:hover::before {
     background-color: red;
 }
 
-#entrar-google {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    box-shadow: 1px 1px 10px black inset;
-    background-color: white;
-    color: black;
-    width: 12.5em;
-    height: 3em;
-    transition: background-color .3s ease-in-out, color .3s ease-in-out;
-}
-
-#entrar-google:hover {
-    background-color: black;
-    color: white;
-}
-
+/* Título do Formulário de Login */
 #login-titulo {
     text-align: center;
     margin-top: 2em;
-    margin-bottom: 16vh;
+    margin-bottom: auto;
     color: rgb(255, 255, 255);
     font-size: 1.2em;
     user-select: none;
+}
+
+#entrar-conta #login-titulo {
+    margin-bottom: 18vh;
 }
 
 #alertas {
@@ -207,8 +215,19 @@ a:hover::before {
     justify-content: center;
 }
 
+#user-icone {
+    position: absolute;
+    height: 2em;
+    width: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4em;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
 @media (max-width: 815px), (max-height: 580px) {
-    body #descricao {
+    #descricao {
         display: none;
     }
 }
@@ -217,7 +236,6 @@ a:hover::before {
     form {
         width: 100% !important;
     }
-
 }
 
 @media (max-height: 495px) {
@@ -232,12 +250,7 @@ a:hover::before {
         flex-direction: row;
     }
 
-    body #login {
-        width: 30em;
-        min-height: 24em;
-    }
-
-    body #entrar-conta {
+    #login, #entrar-conta {
         width: 30em;
         min-height: 24em;
     }
@@ -252,7 +265,7 @@ a:hover::before {
 
     .coluna {
         margin-top: 10em;
-        gap: 2em;   
+        gap: 2em;
     }
 
     #login #coluna1 {
@@ -271,8 +284,12 @@ a:hover::before {
         margin-left: auto;
     }
 
-    input {
+    #login input {
         height: 30%;
+    }
+
+    #entrar-conta input {
+        height: 23%;
     }
 
     #login #alertas {
@@ -285,5 +302,14 @@ a:hover::before {
 
     a {
         margin-top: 15%;
+    }
+
+    button, 
+    #entrar-google {
+        min-height: 3em;
+    }
+
+    #user-icone {
+        top: 2.8em;
     }
 }
