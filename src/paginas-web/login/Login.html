@@ -8,6 +8,7 @@
     </head>
     
     <body>
+        <img src="/assets/backgrounds/fundo-login.jpg" id="fundo-login">
         <form id="login">
             <p id="login-titulo">Criar Conta</p>
             <img src="/assets/icones-login/user-icone.png" id="user-icone">
@@ -15,8 +16,11 @@
             <div class="coluna" id="coluna1">
                 <input id="nome" name="nome" autocomplete="off" placeholder="Nome de usuário" type="text">
                 <input id="email" name="email" autocomplete="off" placeholder="E-mail" type="text">
-                <input id="senha" name="senha" placeholder="Senha" type="password">
-
+                <div id="div-senha">
+                    <input id="senha" name="senha" placeholder="Senha" type="password">
+                    <img src="/assets/icones-login/olho-fechado-senha-icone.png" id="olho-senha-icone" onclick="mudarTipoSenha()">
+                </div>
+                
                 <div id="alertas">
                     <p class="alerta" id="alerta-nome">O nome de usuário deve ser composto e possuir entre 5 e 30 letras, sem números, pontuação ou símbolos.</p>
                     <p class="alerta" id="alerta-email">Email inválido.</p>
@@ -34,13 +38,14 @@
                 <a href="EntrarConta.html" id="login-entrar">Entrar</a>
             </div>
         </form>
+
         
         <div id="descricao">
             <h1>Bem-vindo ao TaskYu!</h1>
 
             <p>
-                Gerencie as suas tarefas e de sua equipe de uma forma simples e eficiente, 
-                garantindo uma melhor organização e produtividade em suas atividades diárias e em seu trabalho.
+                Gerencie as suas tarefas de forma eficiente e colaborativa! Sendo lider de um projeto,
+                você pode distribuir responsabilidades e acompanhar o progresso de sua equipe em tempo real.   
             </p>
         </div>
 

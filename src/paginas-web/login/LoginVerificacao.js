@@ -128,6 +128,19 @@ function verificarEntrarConta() {
     });
 }
 
+function mudarTipoSenha() {
+    const senha = document.getElementById('senha');
+    const olhoSenha = document.getElementById('olho-senha-icone');
+    
+    if (senha.type === 'password') {
+        senha.type = 'text';
+        olhoSenha.src = '/assets/icones-login/olho-aberto-senha-icone.png';
+    } else {
+        senha.type = 'password';
+        olhoSenha.src = '/assets/icones-login/olho-fechado-senha-icone.png';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById("login")) {
         verificarCriarConta();
@@ -136,4 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById("entrar-conta")) {
         verificarEntrarConta();
     }
+
+
 });

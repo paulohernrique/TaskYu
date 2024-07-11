@@ -12,7 +12,14 @@ body {
     font-family: Georgia, Bodoni, "Times New Roman";
 }
 
-/* Seção de Descrição */
+#fundo-login {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+
 #descricao {
     position: relative;
     display: flex;
@@ -105,11 +112,13 @@ input {
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }
 
-#login input {
+#login input,
+#login #div-senha {
     height: 23%;
 }
 
-#entrar-conta input {
+#entrar-conta input,
+#entrar-conta #div-senha {
     height: 30%;
 }
 
@@ -218,12 +227,35 @@ a:hover::before {
 #user-icone {
     position: absolute;
     height: 2em;
-    width: 2em;
     left: 50%;
     transform: translateX(-50%);
     top: 4em;
     border-radius: 50%;
     border: 2px solid black;
+}
+
+#div-senha {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 1em;
+    box-sizing: border-box;
+}
+
+#senha {
+    position: absolute;
+    height: 100% !important;
+    margin-top: 0;
+}
+
+#olho-senha-icone {
+    position: absolute;
+    height: 1.2em;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1em;
+    cursor: pointer;
 }
 
 @media (max-width: 815px), (max-height: 580px) {
@@ -284,11 +316,13 @@ a:hover::before {
         margin-left: auto;
     }
 
-    #login input {
+    #login input,
+    #login #div-senha {
         height: 30%;
     }
 
-    #entrar-conta input {
+    #entrar-conta input,
+    #entrar-conta #div-senha {
         height: 23%;
     }
 

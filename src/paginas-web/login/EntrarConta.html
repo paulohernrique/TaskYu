@@ -14,7 +14,10 @@
             
             <div class="coluna" id="coluna1">
                 <input type="text" id="email" name="email" autocomplete="off" placeholder="E-mail">
-                <input type="password" id="senha" name="senha" placeholder="Senha">
+                <div id="div-senha">
+                    <input id="senha" name="senha" placeholder="Senha" type="password">
+                    <img src="/assets/icones-login/olho-fechado-senha-icone.png" id="olho-senha-icone" onclick="mudarTipoSenha()">
+                </div>
 
                 <div id="alertas">
                     <p class="alerta oculto" id="alerta-campos">Preencha todos os campos para entrar em uma conta ou entre com o Google.</p>
