@@ -1,8 +1,11 @@
-/* Estilos Gerais */
+html, body {
+    overflow: hidden;
+}
+
 body {
     position: relative;
-    background: linear-gradient(to top, rgb(0, 0, 0), #0c1821);
-    background-size: cover;
+    background: linear-gradient(to top, rgb(0, 0, 0), #0c1821, rgb(0, 0, 0), #0c1821, rgb(0, 0, 0));
+    background-size: 100% 200%;
     height: 100vh;
     padding: 0;
     margin: 0;
@@ -11,6 +14,13 @@ body {
     align-items: center;
     font-family: Georgia, Bodoni, "Times New Roman";
     letter-spacing: 1px;
+    animation: rolar 10s linear infinite;
+}
+
+#taskyu-fundo {
+    position: absolute;
+    z-index: -1;
+    font-size: 19em;
 }
 
 #descricao {
@@ -31,6 +41,8 @@ body {
     box-sizing: border-box;
     z-index: -1;
     user-select: none;
+    animation: subir 1.5s forwards;
+
 }
 
 #descricao h1 {
@@ -41,7 +53,6 @@ body {
     margin: 3em 6em 0;
 }
 
-/* Estilos dos Formulários */
 form {
     position: relative;
     display: flex;
@@ -53,7 +64,8 @@ form {
     border-radius: 3em;
     box-sizing: border-box;
     border: 1px solid black;
-    box-shadow: 10px 0 50px rgb(0, 0, 0);
+    box-shadow: 10px 0 20px rgb(0, 0, 0);
+    animation: subir 1.5s forwards;
 }
 
 #login {
@@ -88,7 +100,6 @@ form {
     width: min-content;
 }
 
-/* Estilos dos Inputs */
 input {
     display: flex;
     justify-content: center;
@@ -116,8 +127,8 @@ input {
     height: 30%;
 }
 
-/* Estilos dos Botões */
-button, #entrar-google {
+button,
+#entrar-google {
     padding: 0.5em;
     border-radius: 10px;
     width: 8em;
@@ -228,7 +239,6 @@ a:hover::before {
     transform: translateX(-50%);
     top: 4em;
     border-radius: 50%;
-    border: 2px solid black;
 }
 
 #div-senha {
@@ -274,7 +284,8 @@ a:hover::before {
 }
 
 @media (max-height: 550px) {
-    #login, #entrar-conta {
+    #login,
+    #entrar-conta {
         width: 30em;
         min-height: 29em;
         display: flex;
@@ -339,5 +350,23 @@ a:hover::before {
 
     #user-icone {
         top: 2.8em;
+    }
+}
+
+@keyframes rolar {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%; 
+    }
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(120%);
+    }
+    100% {
+        transform: translateY(0%);
     }
 }
