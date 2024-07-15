@@ -134,10 +134,10 @@ function mudarTipoSenha() {
     
     if (senha.type === 'password') {
         senha.type = 'text';
-        olhoSenha.src = '/assets/icones-login/olho-aberto-senha-icone.png';
+        olhoSenha.src = '../../../assets/icones-login/olho-aberto-senha-icone.png';
     } else {
         senha.type = 'password';
-        olhoSenha.src = '/assets/icones-login/olho-fechado-senha-icone.png';
+        olhoSenha.src = '../../../assets/icones-login/olho-fechado-senha-icone.png';
     }
 }
 

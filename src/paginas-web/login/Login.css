@@ -10,14 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Georgia, Bodoni, "Times New Roman";
-}
-
-#fundo-login {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.4;
+    letter-spacing: 1px;
 }
 
 #descricao {
@@ -102,7 +95,7 @@ input {
     margin-top: 1em;
     border-radius: 25px;
     box-sizing: border-box;
-    padding: 0 1em;
+    padding-inline: 1em;
     min-height: 3em;
     width: 100%;
     border: none;
@@ -110,6 +103,7 @@ input {
     color: white;
     background-color: #171717;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    letter-spacing: 1px;
 }
 
 #login input,
@@ -148,11 +142,12 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-inline: 1em;
     gap: 1em;
     box-shadow: 1px 1px 10px black inset;
     background-color: white;
     color: black;
-    width: 12.5em;
+    width: max-content;
 }
 
 #entrar-google:hover {
@@ -164,6 +159,7 @@ a {
     position: relative;
     text-decoration: none;
     color: white;
+    font-size: 0.7em;
 }
 
 a::before {
@@ -183,6 +179,7 @@ a:hover::before {
 
 #esqueci-senha {
     color: red;
+    margin-top: 2em;
 }
 
 #esqueci-senha::before {
@@ -258,14 +255,14 @@ a:hover::before {
     cursor: pointer;
 }
 
-@media (max-width: 815px), (max-height: 580px) {
+@media (max-width: 845px), (max-height: 580px) {
     #descricao {
         display: none;
     }
 }
 
 @media (max-width: 495px) {
-    form {
+    form  {
         width: 100% !important;
     }
 }
@@ -277,14 +274,11 @@ a:hover::before {
 }
 
 @media (max-height: 550px) {
-    form {
-        display: flex;
-        flex-direction: row;
-    }
-
     #login, #entrar-conta {
         width: 30em;
-        min-height: 24em;
+        min-height: 29em;
+        display: flex;
+        flex-direction: row;
     }
 
     #login-titulo {
